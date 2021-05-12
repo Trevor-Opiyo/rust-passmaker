@@ -30,20 +30,25 @@ fn main() {
 }
 
 fn header() {
-    println!("------------------");
+    println!("\n------------------");
     println!("Password Generator");
     println!("------------------");
 }
 
 fn prompt(char_type: &str)-> bool {
-    println!("Include {}? [Y/N]", char_type);
+    println!("\nInclude {}? [Y/N]\n", char_type);
     let mut answer = String::new(); 
     io::stdin().read_line(&mut answer);
     match answer.as_str() {
-        "Y" | "y" | "YES" | "Yes" | "yes" => return true,
-        "N" | "n" | "NO" | "No" | "no" => return false,
+        "Y" | "y" | "YES" | "Yes" | "yes" => {
+            println!("Hello");
+            return true;
+        }
+        "N" | "n" | "NO" | "No" | "no" => {
+            return false;
+        }
         _ => {
-            println!("Please enter valid input. [Y/N]");
+            println!("\nPlease enter valid input. ex: \'Y\' or \'N\'");
             return false;
         }
     }
