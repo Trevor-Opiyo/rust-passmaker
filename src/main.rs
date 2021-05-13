@@ -28,7 +28,7 @@ fn main() {
     let password: Vec<_> = options
         .choose_multiple(&mut rand::thread_rng(), password_length)
         .collect();
-
+    
     print!("\n");
     for index in password {
         print!("{}", index);
