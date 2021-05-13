@@ -25,11 +25,14 @@ fn main() {
     }
 
     password_length = get_length();
-
     let password: Vec<_> = options
         .choose_multiple(&mut rand::thread_rng(), password_length)
         .collect();
-    println!("{:?}", password);
+
+    print!("\n");
+    for index in password {
+        print!("{}", index);
+    }
 }
 
 fn header() {
@@ -41,7 +44,7 @@ fn header() {
 fn prompt(char_type: &str)-> bool {
     println!("\nInclude {}? [Y/N]\n", char_type);
     let mut answer = String::new();
-    io::stdin().read_line(&mut answer);
+    io::stdin().read_line(&mut answer).ok();
     let answer: String = answer.trim().parse().unwrap();
     match answer.as_str() {
         "Y" | "y" | "YES" | "Yes" | "yes" => {
@@ -58,9 +61,9 @@ fn prompt(char_type: &str)-> bool {
 }
 
 fn get_length()-> usize {
-    println!("Enter an integer length for the password. ex: \'8\'");
+    println!("\nEnter an integer length for the password. [8]\n");
     let mut answer = String::new();
-    io::stdin().read_line(&mut answer);
+    io::stdin().read_line(&mut answer).ok();
     let answer: usize = answer.trim().parse().unwrap();
     return answer;
 }
