@@ -7,7 +7,8 @@ fn main() {
     let mut upper_case = vec!['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     let mut integers = vec!['0','1','3','4','5','6','7','8','9'];
     let mut special_characters = vec!['!','@','#','$','^','&','*','(',')','_','-','+','=','<','>','?'];
-    
+    let password_length;
+
     header();
 
     if prompt("lower-case letters") == true {
@@ -23,8 +24,10 @@ fn main() {
         options.append(&mut special_characters)
     }
 
+    password_length = get_length();
+
     let password: Vec<_> = options
-        .choose_multiple(&mut rand::thread_rng(), 1)
+        .choose_multiple(&mut rand::thread_rng(), password_length)
         .collect();
     println!("{:?}", password);
 }
@@ -37,11 +40,11 @@ fn header() {
 
 fn prompt(char_type: &str)-> bool {
     println!("\nInclude {}? [Y/N]\n", char_type);
-    let mut answer = String::new(); 
+    let mut answer = String::new();
     io::stdin().read_line(&mut answer);
+    let answer: String = answer.trim().parse().unwrap();
     match answer.as_str() {
         "Y" | "y" | "YES" | "Yes" | "yes" => {
-            println!("Hello");
             return true;
         }
         "N" | "n" | "NO" | "No" | "no" => {
@@ -52,4 +55,12 @@ fn prompt(char_type: &str)-> bool {
             return false;
         }
     }
+}
+
+fn get_length()-> usize {
+    println!("Enter an integer length for the password. ex: \'8\'");
+    let mut answer = String::new();
+    io::stdin().read_line(&mut answer);
+    let answer: usize = answer.trim().parse().unwrap();
+    return answer;
 }
