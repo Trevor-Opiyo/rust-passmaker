@@ -42,20 +42,21 @@ fn header() {
 }
 
 fn prompt(char_type: &str)-> bool {
-    println!("\nInclude {}? [Y/N]\n", char_type);
-    let mut answer = String::new();
-    io::stdin().read_line(&mut answer).ok();
-    let answer: String = answer.trim().parse().unwrap();
-    match answer.as_str() {
-        "Y" | "y" | "YES" | "Yes" | "yes" => {
-            return true;
-        }
-        "N" | "n" | "NO" | "No" | "no" => {
-            return false;
-        }
-        _ => {
-            println!("\nPlease enter valid input. ex: \'Y\' or \'N\'");
-            return false;
+    loop {
+        println!("\nInclude {}? [Y/N]\n", char_type);
+        let mut answer = String::new();
+        io::stdin().read_line(&mut answer).ok();
+        let answer: String = answer.trim().parse().unwrap();
+        match answer.as_str() {
+            "Y" | "y" | "YES" | "Yes" | "yes" => {
+                return true;
+            }
+            "N" | "n" | "NO" | "No" | "no" => {
+                return false;
+            }
+            _ => {
+                println!("\nPlease enter valid input. ex: \'Y\' or \'N\'");
+            }
         }
     }
 }
