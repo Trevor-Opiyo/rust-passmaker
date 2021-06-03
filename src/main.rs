@@ -37,7 +37,7 @@ fn main() {
 
 fn header() {
     println!("\n------------------");
-    println!("Password Generator");
+    println!("    rust-passmaker");
     println!("------------------");
 }
 
