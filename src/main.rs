@@ -7,7 +7,6 @@ fn main() {
     let mut upper_case = vec!['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     let mut integers = vec!['0','1','3','4','5','6','7','8','9'];
     let mut special_characters = vec!['!','@','#','$','^','&','*','(',')','_','-','+','=','<','>','?'];
-    let password_length;
 
     header();
 
@@ -24,11 +23,11 @@ fn main() {
         options.append(&mut special_characters)
     }
 
-    password_length = get_length();
+    let password_length = get_length();
     let password: Vec<_> = options
         .choose_multiple(&mut rand::thread_rng(), password_length)
         .collect();
-    
+
     print!("\n");
     for index in password {
         print!("{}", index);
@@ -36,9 +35,9 @@ fn main() {
 }
 
 fn header() {
-    println!("\n------------------");
-    println!("    rust-passmaker");
-    println!("------------------");
+    println!("\n--------------");
+    println!("rust-passmaker");
+    println!("--------------");
 }
 
 fn prompt(char_type: &str)-> bool {
