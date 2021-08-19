@@ -2,28 +2,24 @@ use std::io;
 use rand::seq::SliceRandom;
 
 fn main() {
-    let mut options = Vec::new();
-    let mut password_length: usize;
-    let mut lower_case = vec!['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    let mut upper_case = vec!['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    let mut integers = vec!['0','1','2','3','4','5','6','7','8','9'];
-    let mut special_characters = vec!['!','@','#','$','^','&','*','(',')','_','-','+','=','<','>','?'];
+    let mut options: Vec<char> = Vec::new();
 
     header();
 
     if prompt("lower-case letters") == true {
-        options.append(&mut lower_case)
+        options.extend_from_slice(&['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'])
     }
     if prompt("upper-case letters") == true {
-        options.append(&mut upper_case)
+        options.extend_from_slice(&['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'])
     }
     if prompt("integers") == true {
-        options.append(&mut integers)
+        options.extend_from_slice(&['0','1','2','3','4','5','6','7','8','9'])
     }
     if prompt("special characters") == true {
-        options.append(&mut special_characters)
+        options.extend_from_slice(&['!','@','#','$','%','^','&','*','-','_','+'])
     }
 
+    let mut password_length: usize = get_length();
     generate_password(options, password_length)
 }
 
@@ -61,12 +57,11 @@ fn get_length()-> usize {
     return answer;
 }
 
-fn generate_password<T>(password_options: Vec<T>, password_length: usize) {
+fn generate_password(password_options: Vec<char>, password_length: usize) {
     loop {
-        let password: Vec<_> = password_options;
-        password.choose_multiple(&mut rand::thread_rng(), password_length).collect();
+        password_options.choose_multiple(&mut rand::thread_rng(), password_length).collect();
         print!("\n");
-        for index in password {
+        for index in password_options {
             print!("{}", index);
         }
         println!("\nWould you like to regenerate the password with the same parameters? [Y/N]?\n");
