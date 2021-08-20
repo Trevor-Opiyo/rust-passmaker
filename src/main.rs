@@ -19,7 +19,7 @@ fn main() {
         options.extend_from_slice(&['!','@','#','$','%','^','&','*','-','_','+'])
     }
 
-    let mut password_length: usize = get_length();
+    let password_length: usize = get_length();
     generate_password(options, password_length)
 }
 
@@ -59,11 +59,14 @@ fn get_length()-> usize {
 
 fn generate_password(password_options: Vec<char>, password_length: usize) {
     loop {
-        password_options.choose_multiple(&mut rand::thread_rng(), password_length).collect();
+        let password: Vec<_> = password_options
+            .choose_multiple(&mut rand::thread_rng(), password_length)
+            .collect();
         print!("\n");
-        for index in password_options {
+        for index in password {
             print!("{}", index);
         }
+        print!("\n");
         println!("\nWould you like to regenerate the password with the same parameters? [Y/N]?\n");
         let mut answer = String::new();
         io::stdin().read_line(&mut answer).ok();
