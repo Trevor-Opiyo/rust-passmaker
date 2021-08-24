@@ -37,7 +37,7 @@ fn header() {
 
 fn prompt(char_type: &str) -> bool {
     loop {
-        println!("\nInclude {}? [Y/N]\n", char_type);
+        println!("\nInclude the posssibility of {} in the password? [Y/N]\n", char_type);
         let mut answer = String::new();
         io::stdin().read_line(&mut answer).ok();
         let answer: String = answer.trim().parse().unwrap();
