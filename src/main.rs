@@ -1,5 +1,5 @@
-use std::io;
 use rand::seq::SliceRandom;
+use std::io;
 
 fn main() {
     let mut options: Vec<char> = Vec::new();
@@ -7,16 +7,22 @@ fn main() {
     header();
 
     if prompt("lower-case letters") == true {
-        options.extend_from_slice(&['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'])
+        options.extend_from_slice(&[
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+            'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        ])
     }
     if prompt("upper-case letters") == true {
-        options.extend_from_slice(&['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'])
+        options.extend_from_slice(&[
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
+            'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+        ])
     }
     if prompt("integers") == true {
-        options.extend_from_slice(&['0','1','2','3','4','5','6','7','8','9'])
+        options.extend_from_slice(&['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'])
     }
     if prompt("special characters") == true {
-        options.extend_from_slice(&['!','@','#','$','%','^','&','*','-','_','+'])
+        options.extend_from_slice(&['!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+'])
     }
 
     let password_length: usize = get_length();
@@ -29,7 +35,7 @@ fn header() {
     println!("--------------");
 }
 
-fn prompt(char_type: &str)-> bool {
+fn prompt(char_type: &str) -> bool {
     loop {
         println!("\nInclude {}? [Y/N]\n", char_type);
         let mut answer = String::new();
@@ -49,7 +55,7 @@ fn prompt(char_type: &str)-> bool {
     }
 }
 
-fn get_length()-> usize {
+fn get_length() -> usize {
     println!("\nEnter an integer length for the password. [8]\n");
     let mut answer = String::new();
     io::stdin().read_line(&mut answer).ok();
@@ -76,7 +82,7 @@ fn generate_password(password_options: Vec<char>, password_length: usize) {
             "N" | "n" | "NO" | "No" | "no" => {
                 break;
             }
-            _=> {
+            _ => {
                 println!("\nPlease enter valid input. ex: \'Y\' or \'N\'");
             }
         }
