@@ -1,3 +1,3 @@
 # rust-passmaker
 
-rust password generator for the terminal
+A quick password generator for the terminal written in rust
