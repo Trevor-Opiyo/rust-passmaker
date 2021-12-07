@@ -1,6 +1,6 @@
 [package]
 name = "rust-passmaker"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Trevor Opiyo <46691585+Trevor-Opiyo@users.noreply.github.com>"]
 edition = "2018"
 description = "A password generator CLI written in Rust."
