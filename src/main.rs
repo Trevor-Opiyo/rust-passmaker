@@ -1,3 +1,4 @@
+extern crate rand;
 use rand::seq::SliceRandom;
 use std::io;
 
