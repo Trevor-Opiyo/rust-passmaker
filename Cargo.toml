@@ -1,11 +1,12 @@
-[package]
-name = "rust-passmaker"
-version = "0.2.0"
-authors = ["Trevor Opiyo <46691585+Trevor-Opiyo@users.noreply.github.com>"]
-edition = "2018"
-description = "A password generator CLI written in Rust."
-license = "MIT"
-
 [dependencies]
-rand = "0.8.4"
 io = "0.0.2"
+rand = "0.8.4"
+
+[package]
+authors = ["Trevor Opiyo <46691585+Trevor-Opiyo@users.noreply.github.com>"]
+description = "A password generator CLI written in Rust."
+edition = "2018"
+license = "MIT"
+name = "rust-passmaker"
+next_edition = 2021
+version = "0.2.0"
