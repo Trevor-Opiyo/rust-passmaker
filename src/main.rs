@@ -53,7 +53,7 @@ fn prompt(char_type: &str) -> bool {
                 return false;
             }
             _ => {
-                println!("\nPlease enter valid input. ex: \'Y\' or \'N\'");
+                println!("\nPlease enter valid input. eg: \'Y\' or \'N\'");
             }
         }
     }
@@ -87,7 +87,7 @@ fn generate_password(password_options: Vec<char>, password_length: usize) {
                 break;
             }
             _ => {
-                println!("\nPlease enter valid input. ex: \'Y\' or \'N\'");
+                println!("\nPlease enter valid input. eg: \'Y\' or \'N\'");
             }
         }
     }
