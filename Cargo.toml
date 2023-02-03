@@ -5,8 +5,8 @@ rand = "0.8.4"
 [package]
 authors = ["Trevor Opiyo <46691585+Trevor-Opiyo@users.noreply.github.com>"]
 description = "A password generator CLI written in Rust."
-edition = "2018"
+edition = "2021"
 license = "MIT OR Apache-2.0"
 name = "rust-passmaker"
 next_edition = 2021
-version = "0.2.3"
+version = "0.2.4"
