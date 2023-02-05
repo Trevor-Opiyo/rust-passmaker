@@ -7,22 +7,22 @@ fn main() {
 
     header();
 
-    if prompt("lower-case letters") == true {
+    if prompt("lower-case letters") {
         options.extend_from_slice(&[
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
             'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
         ])
     }
-    if prompt("upper-case letters") == true {
+    if prompt("upper-case letters") {
         options.extend_from_slice(&[
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
             'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         ])
     }
-    if prompt("integers") == true {
+    if prompt("integers") {
         options.extend_from_slice(&['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'])
     }
-    if prompt("special characters") == true {
+    if prompt("special characters") {
         options.extend_from_slice(&['!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+'])
     }
 
