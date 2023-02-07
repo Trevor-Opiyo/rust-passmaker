@@ -8,5 +8,4 @@ description = "A password generator CLI written in Rust."
 edition = "2021"
 license = "MIT OR Apache-2.0"
 name = "rust-passmaker"
-next_edition = 2021
 version = "0.2.5"
